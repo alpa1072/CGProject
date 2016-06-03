@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
                 float test = 1.0f;
                 if (z < 0.0f)
                     test = -1.0f;
-                rb.transform.rotation = Quaternion.Euler(0.0f, Mathf.Acos(-x) * 180.0f * test / Mathf.PI, 0.0f);
+                rb.transform.rotation = Quaternion.Euler(0.0f, Mathf.Acos(-x) * 180.0f * test / Mathf.PI - 90.0f, 0.0f);
                 rb.freezeRotation = true;
             }
         }
