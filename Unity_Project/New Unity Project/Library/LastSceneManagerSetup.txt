@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/soccer.unity
+- path: Assets/Materials/soccer.unity
   isLoaded: 1
   isActive: 1
