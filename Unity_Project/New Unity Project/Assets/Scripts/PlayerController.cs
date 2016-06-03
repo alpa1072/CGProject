@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 	private int height;
 
 	Vector3 rayDir;
+	public GameObject player;
 
     void Start()
     {
@@ -28,10 +29,21 @@ public class PlayerController : MonoBehaviour
 		//////////////////////////////////////////////////////
 		int cnt = Input.touchCount;
 
-		for (int i = 0; i < cnt; i++) {
-			Touch touch = Input.GetTouch (i);
+		if (cnt == 1) {
+			Touch touch = Input.GetTouch (0);
 			Vector2 pos = touch.position;
-			if (touch.phase == TouchPhase.Began) {
+
+			Ray ray = Camera.main.ScreenPointToRay (pos);
+			RaycastHit hitInfo;
+
+			if (Physics.Raycast (ray, out hitInfo, 10000f)) {
+				float x = (hitInfo.point - player.transform.position).normalized.x;
+				float z = (hitInfo.point - player.transform.position).normalized.z;
+				moveHorizontal = x;
+				moveVertical = z;
+			}
+
+			/*if (touch.phase == TouchPhase.Began) {
 				Debug.Log (" start ");
 			}
 			else if (touch.phase == TouchPhase.Ended){
@@ -43,7 +55,7 @@ public class PlayerController : MonoBehaviour
 			}
 			else if (touch.phase == TouchPhase.Moved){
 				Debug.Log (" moving ");
-			}
+			}*/
 		}
 		//////////////////////////////////////////////////////
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
