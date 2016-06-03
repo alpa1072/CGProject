@@ -1,0 +1,711 @@
+fileFormatVersion: 2
+guid: 58b864d95b86dd845b0c9d3c20edab0d
+timeCreated: 1464971476
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: back
+    100004: finger_L
+    100006: finger_L_end
+    100008: finger_R
+    100010: finger_R_end
+    100012: foot_L
+    100014: foot_L_end
+    100016: foot_R
+    100018: foot_R_end
+    100020: head
+    100022: head_end
+    100024: hip_L
+    100026: hip_R
+    100028: knee_L
+    100030: knee_L_end
+    100032: knee_R
+    100034: knee_R_end
+    100036: leg_L
+    100038: leg_R
+    100040: lower_arm_L
+    100042: lower_arm_R
+    100044: lower_leg_L
+    100046: lower_leg_L_end
+    100048: lower_leg_R
+    100050: lower_leg_R_end
+    100052: master
+    100054: neck
+    100056: root
+    100058: shoulder_L
+    100060: shoulder_R
+    100062: //RootNode
+    100064: SoccerPlayer
+    100066: toe_L
+    100068: toe_L_end
+    100070: toe_R
+    100072: toe_R_end
+    100074: upper_arm_L
+    100076: upper_arm_R
+    100078: upper_leg_L
+    100080: upper_leg_R
+    400000: Armature
+    400002: back
+    400004: finger_L
+    400006: finger_L_end
+    400008: finger_R
+    400010: finger_R_end
+    400012: foot_L
+    400014: foot_L_end
+    400016: foot_R
+    400018: foot_R_end
+    400020: head
+    400022: head_end
+    400024: hip_L
+    400026: hip_R
+    400028: knee_L
+    400030: knee_L_end
+    400032: knee_R
+    400034: knee_R_end
+    400036: leg_L
+    400038: leg_R
+    400040: lower_arm_L
+    400042: lower_arm_R
+    400044: lower_leg_L
+    400046: lower_leg_L_end
+    400048: lower_leg_R
+    400050: lower_leg_R_end
+    400052: master
+    400054: neck
+    400056: root
+    400058: shoulder_L
+    400060: shoulder_R
+    400062: SoccerPlayer
+    400064: //RootNode
+    400066: toe_L
+    400068: toe_L_end
+    400070: toe_R
+    400072: toe_R_end
+    400074: upper_arm_L
+    400076: upper_arm_R
+    400078: upper_leg_L
+    400080: upper_leg_R
+    4300000: SoccerPlayer
+    7400000: idle
+    7400002: run
+    7400004: block
+    7400006: shoot
+    7400008: Armature|Action
+    9500000: //RootNode
+    13700000: SoccerPlayer
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Armature|Action
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/master
+        weight: 1
+      - path: Armature/master/knee_L
+        weight: 1
+      - path: Armature/master/knee_L/knee_L_end
+        weight: 1
+      - path: Armature/master/knee_R
+        weight: 1
+      - path: Armature/master/knee_R/knee_R_end
+        weight: 1
+      - path: Armature/master/leg_L
+        weight: 1
+      - path: Armature/master/leg_L/foot_L
+        weight: 1
+      - path: Armature/master/leg_L/foot_L/foot_L_end
+        weight: 1
+      - path: Armature/master/leg_L/toe_L
+        weight: 1
+      - path: Armature/master/leg_L/toe_L/toe_L_end
+        weight: 1
+      - path: Armature/master/leg_R
+        weight: 1
+      - path: Armature/master/leg_R/foot_R
+        weight: 1
+      - path: Armature/master/leg_R/foot_R/foot_R_end
+        weight: 1
+      - path: Armature/master/leg_R/toe_R
+        weight: 1
+      - path: Armature/master/leg_R/toe_R/toe_R_end
+        weight: 1
+      - path: Armature/master/root
+        weight: 1
+      - path: Armature/master/root/back
+        weight: 1
+      - path: Armature/master/root/back/neck
+        weight: 1
+      - path: Armature/master/root/back/neck/head
+        weight: 1
+      - path: Armature/master/root/back/neck/head/head_end
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L/finger_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L/finger_L/finger_L_end
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R/finger_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R/finger_R/finger_R_end
+        weight: 1
+      - path: Armature/master/root/hip_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L/lower_leg_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L/lower_leg_L/lower_leg_L_end
+        weight: 1
+      - path: Armature/master/root/hip_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R/lower_leg_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R/lower_leg_R/lower_leg_R_end
+        weight: 1
+      - path: SoccerPlayer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: run
+      takeName: Armature|Action
+      firstFrame: 40
+      lastFrame: 55
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/master
+        weight: 1
+      - path: Armature/master/knee_L
+        weight: 1
+      - path: Armature/master/knee_L/knee_L_end
+        weight: 1
+      - path: Armature/master/knee_R
+        weight: 1
+      - path: Armature/master/knee_R/knee_R_end
+        weight: 1
+      - path: Armature/master/leg_L
+        weight: 1
+      - path: Armature/master/leg_L/foot_L
+        weight: 1
+      - path: Armature/master/leg_L/foot_L/foot_L_end
+        weight: 1
+      - path: Armature/master/leg_L/toe_L
+        weight: 1
+      - path: Armature/master/leg_L/toe_L/toe_L_end
+        weight: 1
+      - path: Armature/master/leg_R
+        weight: 1
+      - path: Armature/master/leg_R/foot_R
+        weight: 1
+      - path: Armature/master/leg_R/foot_R/foot_R_end
+        weight: 1
+      - path: Armature/master/leg_R/toe_R
+        weight: 1
+      - path: Armature/master/leg_R/toe_R/toe_R_end
+        weight: 1
+      - path: Armature/master/root
+        weight: 1
+      - path: Armature/master/root/back
+        weight: 1
+      - path: Armature/master/root/back/neck
+        weight: 1
+      - path: Armature/master/root/back/neck/head
+        weight: 1
+      - path: Armature/master/root/back/neck/head/head_end
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L/finger_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L/finger_L/finger_L_end
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R/finger_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R/finger_R/finger_R_end
+        weight: 1
+      - path: Armature/master/root/hip_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L/lower_leg_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L/lower_leg_L/lower_leg_L_end
+        weight: 1
+      - path: Armature/master/root/hip_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R/lower_leg_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R/lower_leg_R/lower_leg_R_end
+        weight: 1
+      - path: SoccerPlayer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: block
+      takeName: Armature|Action
+      firstFrame: 72
+      lastFrame: 92
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/master
+        weight: 1
+      - path: Armature/master/knee_L
+        weight: 1
+      - path: Armature/master/knee_L/knee_L_end
+        weight: 1
+      - path: Armature/master/knee_R
+        weight: 1
+      - path: Armature/master/knee_R/knee_R_end
+        weight: 1
+      - path: Armature/master/leg_L
+        weight: 1
+      - path: Armature/master/leg_L/foot_L
+        weight: 1
+      - path: Armature/master/leg_L/foot_L/foot_L_end
+        weight: 1
+      - path: Armature/master/leg_L/toe_L
+        weight: 1
+      - path: Armature/master/leg_L/toe_L/toe_L_end
+        weight: 1
+      - path: Armature/master/leg_R
+        weight: 1
+      - path: Armature/master/leg_R/foot_R
+        weight: 1
+      - path: Armature/master/leg_R/foot_R/foot_R_end
+        weight: 1
+      - path: Armature/master/leg_R/toe_R
+        weight: 1
+      - path: Armature/master/leg_R/toe_R/toe_R_end
+        weight: 1
+      - path: Armature/master/root
+        weight: 1
+      - path: Armature/master/root/back
+        weight: 1
+      - path: Armature/master/root/back/neck
+        weight: 1
+      - path: Armature/master/root/back/neck/head
+        weight: 1
+      - path: Armature/master/root/back/neck/head/head_end
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L/finger_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L/finger_L/finger_L_end
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R/finger_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R/finger_R/finger_R_end
+        weight: 1
+      - path: Armature/master/root/hip_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L/lower_leg_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L/lower_leg_L/lower_leg_L_end
+        weight: 1
+      - path: Armature/master/root/hip_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R/lower_leg_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R/lower_leg_R/lower_leg_R_end
+        weight: 1
+      - path: SoccerPlayer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: shoot
+      takeName: Armature|Action
+      firstFrame: 104
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/master
+        weight: 1
+      - path: Armature/master/knee_L
+        weight: 1
+      - path: Armature/master/knee_L/knee_L_end
+        weight: 1
+      - path: Armature/master/knee_R
+        weight: 1
+      - path: Armature/master/knee_R/knee_R_end
+        weight: 1
+      - path: Armature/master/leg_L
+        weight: 1
+      - path: Armature/master/leg_L/foot_L
+        weight: 1
+      - path: Armature/master/leg_L/foot_L/foot_L_end
+        weight: 1
+      - path: Armature/master/leg_L/toe_L
+        weight: 1
+      - path: Armature/master/leg_L/toe_L/toe_L_end
+        weight: 1
+      - path: Armature/master/leg_R
+        weight: 1
+      - path: Armature/master/leg_R/foot_R
+        weight: 1
+      - path: Armature/master/leg_R/foot_R/foot_R_end
+        weight: 1
+      - path: Armature/master/leg_R/toe_R
+        weight: 1
+      - path: Armature/master/leg_R/toe_R/toe_R_end
+        weight: 1
+      - path: Armature/master/root
+        weight: 1
+      - path: Armature/master/root/back
+        weight: 1
+      - path: Armature/master/root/back/neck
+        weight: 1
+      - path: Armature/master/root/back/neck/head
+        weight: 1
+      - path: Armature/master/root/back/neck/head/head_end
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L/finger_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L/finger_L/finger_L_end
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R/finger_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R/finger_R/finger_R_end
+        weight: 1
+      - path: Armature/master/root/hip_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L/lower_leg_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L/lower_leg_L/lower_leg_L_end
+        weight: 1
+      - path: Armature/master/root/hip_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R/lower_leg_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R/lower_leg_R/lower_leg_R_end
+        weight: 1
+      - path: SoccerPlayer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Action
+      takeName: Armature|Action
+      firstFrame: 0
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/master
+        weight: 1
+      - path: Armature/master/knee_L
+        weight: 1
+      - path: Armature/master/knee_L/knee_L_end
+        weight: 1
+      - path: Armature/master/knee_R
+        weight: 1
+      - path: Armature/master/knee_R/knee_R_end
+        weight: 1
+      - path: Armature/master/leg_L
+        weight: 1
+      - path: Armature/master/leg_L/foot_L
+        weight: 1
+      - path: Armature/master/leg_L/foot_L/foot_L_end
+        weight: 1
+      - path: Armature/master/leg_L/toe_L
+        weight: 1
+      - path: Armature/master/leg_L/toe_L/toe_L_end
+        weight: 1
+      - path: Armature/master/leg_R
+        weight: 1
+      - path: Armature/master/leg_R/foot_R
+        weight: 1
+      - path: Armature/master/leg_R/foot_R/foot_R_end
+        weight: 1
+      - path: Armature/master/leg_R/toe_R
+        weight: 1
+      - path: Armature/master/leg_R/toe_R/toe_R_end
+        weight: 1
+      - path: Armature/master/root
+        weight: 1
+      - path: Armature/master/root/back
+        weight: 1
+      - path: Armature/master/root/back/neck
+        weight: 1
+      - path: Armature/master/root/back/neck/head
+        weight: 1
+      - path: Armature/master/root/back/neck/head/head_end
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L/finger_L
+        weight: 1
+      - path: Armature/master/root/back/shoulder_L/upper_arm_L/lower_arm_L/finger_L/finger_L_end
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R/finger_R
+        weight: 1
+      - path: Armature/master/root/back/shoulder_R/upper_arm_R/lower_arm_R/finger_R/finger_R_end
+        weight: 1
+      - path: Armature/master/root/hip_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L/lower_leg_L
+        weight: 1
+      - path: Armature/master/root/hip_L/upper_leg_L/lower_leg_L/lower_leg_L_end
+        weight: 1
+      - path: Armature/master/root/hip_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R/lower_leg_R
+        weight: 1
+      - path: Armature/master/root/hip_R/upper_leg_R/lower_leg_R/lower_leg_R_end
+        weight: 1
+      - path: SoccerPlayer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
