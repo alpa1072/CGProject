@@ -6,12 +6,14 @@ public class PlayerController : MonoBehaviour
 
     //Vector2[] touchPos = new Vector2[5];
 
-    Vector3 zero_Vec3 = new Vector3(0.0f, 0.0f, 0.0f);
+	Vector3 zero_Vec3 = new Vector3(0.0f, 0.0f, 0.0f);
+	Vector3 num_Vec3 = new Vector3(15.5f, 0.0f, 15.5f);
     Vector3 hit_vec;
 
     public GameObject ball;
     private float distance;
     private Vector3 player_direction;
+	private int first = 1;
 
     public float speed;
     private Rigidbody rb;
@@ -26,29 +28,36 @@ public class PlayerController : MonoBehaviour
         hit_vec = rb.transform.position;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float dis_x = ball.transform.position.x - rb.transform.position.x;
         float dis_z = ball.transform.position.z - rb.transform.position.z;
         distance = Mathf.Pow(dis_x * dis_x + dis_z * dis_z, 0.5f);
 
-        if (rb.velocity.sqrMagnitude != 0)
+        if (rb.velocity.sqrMagnitude > 0.1f)
         {
             player_direction = rb.velocity;
             player_direction.y = 0.0f;
             player_direction = player_direction.normalized;
         }
 
-        if (distance < 2.6)
-        {
-            Vector3 temp = rb.transform.position;
-            temp.x = temp.x + player_direction.x * 3.0f;
-            temp.z = temp.z + player_direction.z * 3.0f;
-            ball.transform.position = temp;
-        }
+		if (first == 1 && distance < 16.0f) {
+			Vector3 temp = rb.transform.position;
+			temp.y = ball.transform.position.y;
+			temp.x = temp.x + player_direction.x * 20.0f;
+			temp.z = temp.z + player_direction.z * 20.0f;
+			ball.transform.position = temp;
+			first = 0;
+		} else if (first != 1) {
+			Vector3 temp = rb.transform.position;
+			temp.y = ball.transform.position.y;
+			temp.x = temp.x + player_direction.x * 20.0f;
+			temp.z = temp.z + player_direction.z * 20.0f;
+			ball.transform.position = temp;
+		}
 
         //////////////////////////////////////////////////////
-        int cnt = Input.touchCount;
+        /*int cnt = Input.touchCount;
 
         if (cnt == 1)
         {
@@ -71,9 +80,9 @@ public class PlayerController : MonoBehaviour
                     test = -1.0f;
                 rb.transform.rotation = Quaternion.Euler(0.0f, Mathf.Acos(-x) * 180.0f * test / Mathf.PI - 90.0f, 0.0f);
                 rb.freezeRotation = true;
-                rb.velocity = vec.normalized * 50;
+				rb.velocity = vec.normalized * speed;
             }
-        }
+        }*/
         /*Vector3 temp_vec = hit_vec - rb.transform.position;
         if (temp_vec.x <= 1.0f && temp_vec.x >= -1.0f && temp_vec.z <= 1.0f && temp_vec.z >= -1.0f) {
             rb.velocity = zero_Vec3;
