@@ -41,6 +41,12 @@ public class PlayerController : MonoBehaviour
             player_direction = player_direction.normalized;
         }
 
+        // 공과 선수의 거리가 16보다 작아지면 공을 20의 거리로 만든다.
+        // 다시 이제 공과의 거리와 선수가 16보다 작아지면 다시 20의 거리로 만든다.
+        // 즉, 공과의 거리를 20으로 유지하기 위해서이다.
+        // 처음에 공과의 거리가 16보다 작아져서 공을 잡으면 거리를 20으로 만든다.
+        // 그런데 한 번 공의 소유권을 잡으면 이제 무조건 20으로 거리를 유지하도록 해야하므로
+        // first라는 변수를 만들어서 각 동작을 구분했다. 
 		if (first == 1 && distance < 16.0f) {
 			Vector3 temp = rb.transform.position;
 			temp.y = ball.transform.position.y;
@@ -48,6 +54,8 @@ public class PlayerController : MonoBehaviour
 			temp.z = temp.z + player_direction.z * 20.0f;
 			ball.transform.position = temp;
 			first = 0;
+        
+        //공을 한 번 잡으면 여기로 가서 공의 거리를 20으로 유지한다.
 		} else if (first != 1) {
 			Vector3 temp = rb.transform.position;
 			temp.y = ball.transform.position.y;
