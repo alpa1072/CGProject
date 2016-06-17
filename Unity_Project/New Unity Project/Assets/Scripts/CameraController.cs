@@ -23,6 +23,9 @@ public class CameraController : MonoBehaviour {
 	private Vector3 offset;
 	private Rigidbody rb;
 
+	private float start = -1;
+	private float end, interval = -1;
+
 	// Use this for initialization
 
 	void Start () {
@@ -50,11 +53,11 @@ public class CameraController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		/* Camera position setting */
 		transform.position = ball.transform.position + offset; //카메라 포지션
-		
 
+		int cnt = Input.touchCount; //안드로이드 화면에서 터치를 한 개수이다. 
 		/* Get ball */
 		float dis_x, dis_z;
 
@@ -99,24 +102,26 @@ public class CameraController : MonoBehaviour {
 
 		////////////////////////////////////////////////////////////////////////////////////////////
 		/* Movement */
-		int cnt = Input.touchCount; //안드로이드 화면에서 터치를 한 개수이다. 
 
-		if (cnt == 1) //화면을 터치한 개수가 1개이면 (우리는 선수를 이동시키므로 1번의 터치만 있으면 된다.)
-		{
-			Touch touch = Input.GetTouch(0);
-            Vector2 pos = touch.position; // touch한 부분의 좌표를 받는다. 
+		if (cnt == 1) { //화면을 터치한 개수가 1개이면 (우리는 선수를 이동시키므로 1번의 터치만 있으면 된다.)
+			if (start != -1) {
+				end = Time.time;
+				interval = end - start;
+				start = -1;
+			}
+			Touch touch = Input.GetTouch (0);
+			Vector2 pos = touch.position; // touch한 부분의 좌표를 받는다. 
 
-			Ray ray = Camera.main.ScreenPointToRay(pos); // 카메라에서 화면으로 쏘는 ray
+			Ray ray = Camera.main.ScreenPointToRay (pos); // 카메라에서 화면으로 쏘는 ray
 			RaycastHit hitInfo;
 
-			if (Physics.Raycast(ray, out hitInfo, 10000f)) // ray에서 10000까지 쏘는 과정에 collider에 부딪히는 부분의 정보를 hitinfo로 내보낸다.
-			{
-				if (hitInfo.collider.gameObject.Equals(players[0])) { //부딪힌 것이 0번 플레이어이면 
-					selected_player = players[0];
+			if (Physics.Raycast (ray, out hitInfo, 10000f)) { // ray에서 10000까지 쏘는 과정에 collider에 부딪히는 부분의 정보를 hitinfo로 내보낸다.
+				if (hitInfo.collider.gameObject.Equals (players [0])) { //부딪힌 것이 0번 플레이어이면 
+					selected_player = players [0];
 					selected_player_number = 0; // 0번 플레이어가 선택된다. 
 					rb = selected_player.GetComponent<Rigidbody> ();
-				} else if (hitInfo.collider.gameObject.Equals(players[1])) { // 부딪힌 것이 1번 플레이면
-					selected_player = players[1];
+				} else if (hitInfo.collider.gameObject.Equals (players [1])) { // 부딪힌 것이 1번 플레이면
+					selected_player = players [1];
 					selected_player_number = 1; //1번 플레이어가 선택된다. 
 					rb = selected_player.GetComponent<Rigidbody> ();
 				} else { // 플레이어를 선택하지 않을 때이다. 선택되어 있는 선수를 움직일 때 사용된다.
@@ -130,13 +135,21 @@ public class CameraController : MonoBehaviour {
 					if (z < 0.0f)
 						test = -1.0f;
 
-                    //플레이어가 터치한 곳으로 방향을 바로바로 바꾸도록 한 부분이다.
-                    //y축으로 적절한 각도만큼 회전(acos, radian, degree이용), -90.0f는 처음의 플레이어 방향 때문에 넣음
+					//플레이어가 터치한 곳으로 방향을 바로바로 바꾸도록 한 부분이다.
+					//y축으로 적절한 각도만큼 회전(acos, radian, degree이용), -90.0f는 처음의 플레이어 방향 때문에 넣음
 					rb.transform.rotation = Quaternion.Euler (0.0f, Mathf.Acos (-x) * 180.0f * test / Mathf.PI - 90.0f, 0.0f);
 					rb.freezeRotation = true; // 플레이어가 계속해서 도는 것을 방지
 					rb.velocity = vec.normalized * speed; //속도 조절
 				}
 			}
+		} else if (cnt > 1 && start == -1)
+			start = Time.time;
+		///////////////////////////////////
+		if (interval < 1 && interval >= 0) { // pass
+			ball.GetComponent<Rigidbody> ().velocity = players_direction [curr_player_number] * speed * 2;
+			curr_player_number = -1;
+			interval = -1;
+		} else if (interval >= 1) { // shoot
 		}
     }
 }
