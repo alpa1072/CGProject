@@ -1,7 +1,3 @@
-/Users/LWJ/Unity_Project/New Unity Project/Temp/bin/Debug/Assembly-CSharp.dll.mdb
-/Users/LWJ/Unity_Project/New Unity Project/Temp/bin/Debug/Assembly-CSharp.dll
-/Users/LWJ/Unity_Project/New Unity Project/obj/Debug/Assembly-CSharp.dll
-/Users/LWJ/Unity_Project/New Unity Project/obj/Debug/Assembly-CSharp.dll.mdb
 /Users/LWJ/Unity_Project/New Unity Project/Temp/bin/Debug/UnityEngine.dll
 /Users/LWJ/Unity_Project/New Unity Project/Temp/bin/Debug/UnityEditor.dll
 /Users/LWJ/Unity_Project/New Unity Project/Temp/bin/Debug/UnityEngine.Networking.dll
@@ -15,3 +11,7 @@
 /Users/LWJ/Unity_Project/New Unity Project/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/LWJ/Unity_Project/New Unity Project/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/LWJ/Unity_Project/New Unity Project/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/LWJ/Unity_Project/New Unity Project/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/LWJ/Unity_Project/New Unity Project/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/LWJ/Unity_Project/New Unity Project/obj/Debug/Assembly-CSharp.dll
+/Users/LWJ/Unity_Project/New Unity Project/obj/Debug/Assembly-CSharp.dll.mdb

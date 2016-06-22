@@ -27,10 +27,13 @@ public class CameraController : MonoBehaviour {
 
 	private float start = -1;
 	private float end, twoClickInterval = -1;
+	private float sum_time = 0;
+	private bool shoot_start = false;
 
 	// Use this for initialization
 
 	void Start () {
+
         // curr 붙은 게 공을 잡은 플레이어, selected 붙은게 손으로 선택한 플레이어, nearest = 지금 공과 가장 가까운 플레이어
 
         /*camer position setting*/
@@ -97,7 +100,7 @@ public class CameraController : MonoBehaviour {
         //일단 공을 잡은 플레이어는 공과의 거리가 20으로 설정되어 있다.
         //nearest player와 공과의 거리가 16.0f보다 작아지고 neareset player와 현재 공을 잡고 있던 플레이어가 다르면
         //공을 뺏도록 한다. 그 과정을 구현한 부분이다.
-		if (distance_xz[nearest_player_number] < 16.0f && curr_player_number != nearest_player_number) {
+		if (distance_xz[nearest_player_number] < 16.0f && ball.transform.position.y <= 45.0f && curr_player_number != nearest_player_number) {
             curr_player_number = nearest_player_number; // 뺏는다.(=  가장 가까운 플레이어가 공 잡도록 한다.) 
 			Vector3 temp = players[curr_player_number].GetComponent<Rigidbody>().transform.position;
 			temp.y = ball.transform.position.y;
@@ -121,6 +124,7 @@ public class CameraController : MonoBehaviour {
 				end = Time.time;
 				twoClickInterval = end - start;
 				start = -1;
+				shoot_start = true;
 			}
 			Touch touch = Input.GetTouch (0);
 			Vector2 pos = touch.position; // touch한 부분의 좌표를 받는다. 
@@ -139,6 +143,7 @@ public class CameraController : MonoBehaviour {
 					rb = selected_player.GetComponent<Rigidbody> ();
 				} else { // 플레이어를 선택하지 않을 때이다. 선택되어 있는 선수를 움직일 때 사용된다.
 					hit_vec = hitInfo.point;
+					hit_vec.y = 0.0f;
 					Vector3 vec = hitInfo.point - rb.transform.position; // 선수로부터 터치한 방향의 벡터를 구한다.
 					float x = vec.normalized.x; //
 					float z = vec.normalized.z;
@@ -155,37 +160,46 @@ public class CameraController : MonoBehaviour {
 					rb.velocity = vec.normalized * speed; //속도 조절
 				}
 			}
-		} else if (cnt > 1 && start == -1)
+		} else if (cnt > 1 && start == -1) {
 			start = Time.time;
+		}
 		///////////////////////////////////
 		int pass_i = -1;
-		if (twoClickInterval < 1 && twoClickInterval >= 0) { // pass
-			float min = 99999.9f;
-			for (int i = 0; i < 2; i++) {
-				if (Vector3.Dot(player2players_direction[i], players_direction[curr_player_number]) > Mathf.Pow(0.5f, 0.5f)
-					&& curr_player_number != i
-					&& min > distance_p2p_xz [i]) { // 사이 각도가 +- 45도 이고 && 다른 사람이고 && 더 가깝다면
+		if (shoot_start == true) {
+			players [curr_player_number].GetComponent<Animator> ().CrossFade("shoot", 0.0f);
+			sum_time += Time.deltaTime;
+		}
+		if (sum_time > 0.24f) {
+			players [curr_player_number].GetComponent<Animator> ().CrossFade("run", 0.0f);
+			if (twoClickInterval < 1 && twoClickInterval >= 0) { // pass
+				float min = 99999.9f;
+				for (int i = 0; i < 2; i++) {
+					if (Vector3.Dot (player2players_direction [i], players_direction [curr_player_number]) > Mathf.Pow (0.5f, 0.5f)
+					   && curr_player_number != i
+					   && min > distance_p2p_xz [i]) { // 사이 각도가 +- 45도 이고 && 다른 사람이고 && 더 가깝다면
 						pass_i = i;
+					}
 				}
-			}
-			if (pass_i == -1) {
-				ball.GetComponent<Rigidbody> ().velocity = players_direction [curr_player_number] * speed * 2;
+				if (pass_i == -1) {
+					ball.GetComponent<Rigidbody> ().velocity = players_direction [curr_player_number] * speed * 2;
+					curr_player_number = -1;
+					twoClickInterval = -1;
+				} else {
+					ball.GetComponent<Rigidbody> ().velocity = player2players_direction [pass_i] * 300;
+					curr_player_number = -1;
+					twoClickInterval = -1;
+					pass_i = -1;
+				}
+			} else if (twoClickInterval >= 1) { // shoot
+				Vector3 shoot_direction = players_direction [curr_player_number];
+				shoot_direction.y = 0.5f;
+				shoot_direction = shoot_direction.normalized;
+				ball.GetComponent<Rigidbody> ().velocity = shoot_direction * (200 + 100 * Mathf.Min (twoClickInterval, 2.0f));
 				curr_player_number = -1;
 				twoClickInterval = -1;
-			} else {
-				ball.GetComponent<Rigidbody> ().velocity = player2players_direction [pass_i] * 300;
-				curr_player_number = -1;
-				twoClickInterval = -1;
-				pass_i = -1;
 			}
-		} else if (twoClickInterval >= 1) { // shoot
-			if (twoClickInterval >= 2) twoClickInterval = 2;
-			Vector3 shoot_direction = players_direction[curr_player_number];
-			shoot_direction.y = 0.5f;
-			shoot_direction = shoot_direction.normalized;
-			ball.GetComponent<Rigidbody> ().velocity = shoot_direction * (200 + 100 * twoClickInterval);
-			curr_player_number = -1;
-			twoClickInterval = -1;
+			shoot_start = false;
+			sum_time = 0;
 		}
     }
 }
