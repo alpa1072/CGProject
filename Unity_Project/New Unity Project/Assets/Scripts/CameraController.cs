@@ -6,7 +6,9 @@ public class CameraController : MonoBehaviour {
 	Vector3 hit_vec;
 
 	private float[] distance_xz = new float[2]; // 공과 플레이어 사이의 거리 (평면 상에서만의 거리)
+	private float[] distance_p2p_xz = new float[2];
 	private Vector3[] players_direction = new Vector3[2];
+	private Vector3[] player2players_direction = new Vector3[2];
 	private int first;
 	private int nearest_player_number = 1;
 	private int curr_player_number = 1;
@@ -24,7 +26,7 @@ public class CameraController : MonoBehaviour {
 	private Rigidbody rb;
 
 	private float start = -1;
-	private float end, interval = -1;
+	private float end, twoClickInterval = -1;
 
 	// Use this for initialization
 
@@ -37,7 +39,9 @@ public class CameraController : MonoBehaviour {
 
 		/*get ball (공 잡는 것)*/
 		distance_xz[0] = 100.0f; //0번 플레이어와 공의 거리 초기화
-        distance_xz[1] = 100.0f; //1번 플레이어와 공의 거리 초기화
+		distance_xz[1] = 100.0f; //1번 플레이어와 공의 거리 초기화
+		distance_p2p_xz[0] = 100.0f; //0번
+		distance_p2p_xz[1] = 100.0f; //1번
 		players_direction[0] = new Vector2(1.0f, 0.0f); //처음의 플레이어의 보고 있는 방향 초기화
         players_direction[1] = new Vector2(1.0f, 0.0f); //처음의 플레이어의 보고 있는 방향 초기화
 		// players_direction -> team1 -> +x / team2 -> -x
@@ -71,6 +75,15 @@ public class CameraController : MonoBehaviour {
 				players_direction[i] = players[i].GetComponent<Rigidbody>().velocity;
 				players_direction[i].y = 0.0f;
 				players_direction[i] = players_direction[i].normalized;
+			}
+			if (i != curr_player_number && curr_player_number != -1) {
+				dis_x = players[i].transform.position.x - players[curr_player_number].transform.position.x;
+				dis_z = players[i].transform.position.z - players[curr_player_number].transform.position.z;
+				distance_p2p_xz[i] = Mathf.Pow(dis_x * dis_x + dis_z * dis_z, 0.5f); // 평면상에서 선수(curr)와 선수(i)의 거리를 구한다.
+				player2players_direction[i].x = dis_x;
+				player2players_direction[i].y = 0.0f;
+				player2players_direction[i].z = dis_z;
+				player2players_direction[i] = player2players_direction [i].normalized; // curr to i direction
 			}
 		}
 
@@ -106,7 +119,7 @@ public class CameraController : MonoBehaviour {
 		if (cnt == 1) { //화면을 터치한 개수가 1개이면 (우리는 선수를 이동시키므로 1번의 터치만 있으면 된다.)
 			if (start != -1) {
 				end = Time.time;
-				interval = end - start;
+				twoClickInterval = end - start;
 				start = -1;
 			}
 			Touch touch = Input.GetTouch (0);
@@ -145,11 +158,34 @@ public class CameraController : MonoBehaviour {
 		} else if (cnt > 1 && start == -1)
 			start = Time.time;
 		///////////////////////////////////
-		if (interval < 1 && interval >= 0) { // pass
-			ball.GetComponent<Rigidbody> ().velocity = players_direction [curr_player_number] * speed * 2;
+		int pass_i = -1;
+		if (twoClickInterval < 1 && twoClickInterval >= 0) { // pass
+			float min = 99999.9f;
+			for (int i = 0; i < 2; i++) {
+				if (Vector3.Dot(player2players_direction[i], players_direction[curr_player_number]) > Mathf.Pow(0.5f, 0.5f)
+					&& curr_player_number != i
+					&& min > distance_p2p_xz [i]) { // 사이 각도가 +- 45도 이고 && 다른 사람이고 && 더 가깝다면
+						pass_i = i;
+				}
+			}
+			if (pass_i == -1) {
+				ball.GetComponent<Rigidbody> ().velocity = players_direction [curr_player_number] * speed * 2;
+				curr_player_number = -1;
+				twoClickInterval = -1;
+			} else {
+				ball.GetComponent<Rigidbody> ().velocity = player2players_direction [pass_i] * 300;
+				curr_player_number = -1;
+				twoClickInterval = -1;
+				pass_i = -1;
+			}
+		} else if (twoClickInterval >= 1) { // shoot
+			if (twoClickInterval >= 2) twoClickInterval = 2;
+			Vector3 shoot_direction = players_direction[curr_player_number];
+			shoot_direction.y = 0.5f;
+			shoot_direction = shoot_direction.normalized;
+			ball.GetComponent<Rigidbody> ().velocity = shoot_direction * (200 + 100 * twoClickInterval);
 			curr_player_number = -1;
-			interval = -1;
-		} else if (interval >= 1) { // shoot
+			twoClickInterval = -1;
 		}
     }
 }
