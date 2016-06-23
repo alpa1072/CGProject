@@ -21,7 +21,7 @@ public class CameraConversion : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (conversion) {
+		/*if (conversion) {
 			mainCam.GetComponent<Camera> ().enabled = true;
 			subCam.GetComponent<Camera> ().enabled = false;
 			i++;
@@ -37,6 +37,6 @@ public class CameraConversion : MonoBehaviour {
 				conversion = true;
 				i = 0;
 			}
-		}
+		}*/
 	}
 }
