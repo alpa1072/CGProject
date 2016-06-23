@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BallController.cs" />
-     <Compile Include="Assets\Scripts\Button_click.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CameraConversion.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />

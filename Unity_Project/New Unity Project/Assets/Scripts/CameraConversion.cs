@@ -8,7 +8,7 @@ public class CameraConversion : MonoBehaviour {
 	public GameObject conversion_button;
 
 	private bool conversion = true;
-	private int i = 0;
+	private int test = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -21,22 +21,15 @@ public class CameraConversion : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		/*if (conversion) {
+	}
+	public void OnClick(){
+		test++;
+		if (test % 2 == 0) {
 			mainCam.GetComponent<Camera> ().enabled = true;
 			subCam.GetComponent<Camera> ().enabled = false;
-			i++;
-			if (i == 500) {
-				conversion = false;
-				i = 0;
-			}
 		} else {
 			subCam.GetComponent<Camera> ().enabled = true;
 			mainCam.GetComponent<Camera> ().enabled = false;
-			i++;
-			if (i == 500) {
-				conversion = true;
-				i = 0;
-			}
-		}*/
+		}
 	}
 }

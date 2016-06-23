@@ -118,14 +118,21 @@ public class CameraController : MonoBehaviour {
 
 		////////////////////////////////////////////////////////////////////////////////////////////
 		/* Movement */
-
-		if (cnt == 1) { //화면을 터치한 개수가 1개이면 (우리는 선수를 이동시키므로 1번의 터치만 있으면 된다.)
+		if (cnt <= 1) {
 			if (start != -1) {
 				end = Time.time;
 				twoClickInterval = end - start;
 				start = -1;
 				shoot_start = true;
 			}
+		}
+		if (cnt == 1) { //화면을 터치한 개수가 1개이면 (우리는 선수를 이동시키므로 1번의 터치만 있으면 된다.)
+			/*if (start != -1) {
+				end = Time.time;
+				twoClickInterval = end - start;
+				start = -1;
+				shoot_start = true;
+			}*/
 			Touch touch = Input.GetTouch (0);
 			Vector2 pos = touch.position; // touch한 부분의 좌표를 받는다. 
 
@@ -160,7 +167,7 @@ public class CameraController : MonoBehaviour {
 					rb.velocity = vec.normalized * speed; //속도 조절
 				}
 			}
-		} else if (cnt > 1 && start == -1) {
+		} else if (cnt > 1 && start == -1 && curr_player_number != -1) {
 			start = Time.time;
 		}
 		///////////////////////////////////
