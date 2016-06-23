@@ -7,7 +7,6 @@ public class CameraConversion : MonoBehaviour {
 	public GameObject subCam;
 	public GameObject conversion_button;
 
-	private bool conversion = true;
 	private int test = 0;
 
 	// Use this for initialization
