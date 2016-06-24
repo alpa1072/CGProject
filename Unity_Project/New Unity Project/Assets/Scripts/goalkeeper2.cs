@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/* 공과 골키퍼의 벡터를 구하고 골대와 공의 벡터를 구한다.
+  그러고나서 골대를 기준으로 공의 위치를 파악해서 골대로부터 적당히 떨어진 위치에 골키퍼가 위치할 수 있도록 한다.
+  골키퍼는 항상 공을 바라보고 있다. */
+
 public class goalkeeper2 : MonoBehaviour
 {
 
-    public GameObject keeper2;
+    public GameObject keeper2; // 반대 편 골키퍼 오브젝트 
     public GameObject ball2;
     private Rigidbody rb2;
     public float speed2;
@@ -19,12 +23,14 @@ public class goalkeeper2 : MonoBehaviour
     void Update()
     {
         rb2 = keeper2.GetComponent<Rigidbody>();
+
         Vector3 temp_vec;
-        temp_vec.x = 530.0f;
+        temp_vec.x = 530.0f; // 기준이 되는 골대의 위치이다.
         temp_vec.y = 22.0f;
         temp_vec.z = 150.0f;
-        Vector3 vec = (ball2.transform.position - temp_vec).normalized;
-        Vector3 vec2 = (ball2.transform.position - transform.position);
+
+        Vector3 vec = (ball2.transform.position - temp_vec).normalized; // 공과 골대의 벡터
+        Vector3 vec2 = (ball2.transform.position - transform.position); // 공과 골키퍼의 벡터
 
         float x = vec.normalized.x;
         vec.y = 0.0f;

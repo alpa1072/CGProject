@@ -47,7 +47,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CameraConversion.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\afterGoal.cs" />
+     <Compile Include="Assets\Scripts\bomb.cs" />
      <Compile Include="Assets\Scripts\goalkeeper.cs" />
      <Compile Include="Assets\Scripts\goalkeeper2.cs" />
  <Reference Include="UnityEngine.UI">
